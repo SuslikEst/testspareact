@@ -11,20 +11,33 @@ const App  = () => {
         <header className="header">
         	<img 
         	src="https://www.freepnglogos.com/uploads/google-chrome-logo-png-12.png" 
-        	width="100" 
-        	height="auto"
-        	alt="logo"
+          alt="logo"
+          className="logo"
         	/>
         </header>
         <nav className="nav">
         	<ul>
-        		<li>Home</li>
-        		<li>About us</li>
-        		<li>Contacts</li>
+        		<li><a href="/home">Home</a></li>
+        		<li><a href="/about us">About us</a></li>
+        		<li><a href="/contacts">Contacts</a></li>
         	</ul>
         </nav>
         <main role="main" className="content">
-        	<p>Content</p>
+          <figure>
+            <img src="/images/pliasz.jpg" className="main-img" alt="main-img"/>
+          </figure>
+          <img src="/images/avatar.jpg" alt="avatar"/>
+          <div>
+            <h3>Title</h3>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+              Placeat adipisci velit suscipit officia earum deserunt ad eligendi, corrupti vel non 
+              provident totam rerum maiores natus consequuntur ab molestiae dolores. Alias.
+            </p>
+          </div>
+          <article>
+            Post
+          </article>
         </main>
       </div>
     );
