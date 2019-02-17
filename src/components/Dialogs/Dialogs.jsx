@@ -7,62 +7,20 @@ import Message from './Message/Message.jsx';
 
 const { active, dialog, message, dialogs, messages } = { ...classes };
 
-const Dialogs = () => {
+const Dialogs = (props) => {
 
-	const dialogsData = [
-		{
-			id: 1,
-			name: "Сергей",
-		},
-		{
-			id: 2,
-			name: "Иван",
-		},
-		{
-			id: 3,
-			name: "Виктор",
-		},
-		{
-			id: 4,
-			name: "Люда",
-		},
-		{
-			id: 5,
-			name: "Djohn",
-		}
-	];
-	const messagesData = [
-		{
-			id: 1,
-			msg: "Привет!",
-		},
-		{
-			id: 2,
-			msg: "Ваня!",
-		},
-		{
-			id: 3,
-			msg: "Как дела?",
-		},
-		{
-			id: 4,
-			msg: "Всем хай!",
-		},
-		{
-			id: 5,
-			msg: "Hi!",
-		}
-	];
+	const { dialogs, messages } = { ...props };
+
     return (
       <div className={ dialogs }>
 	      <div className={ classes['dialogs-items'] }>
 	      	{
-	      		dialogsData.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>)
+	      		dialogs.map(dialog => <DialogItem name={dialog.name} key={ dialog.id } id={dialog.id}/>)
 	      	}
 	      </div>
 	      <div className={ messages }>
 	      	{
-	      		messagesData.map(message => <Message msg={message.msg} />)
+	      		messages.map(message => <Message msg={message.msg} key={ message.id } />)
 	      	}
 	      </div>
       </div>

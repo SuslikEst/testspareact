@@ -4,8 +4,8 @@ import classes from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-const Profile = () => {
-
+const Profile = (props) => {
+const { posts, addPost } = { ...props };
     return (
       <div>
         <figure className={classes['main-img']}>
@@ -14,7 +14,7 @@ const Profile = () => {
 
         <ProfileInfo />
 
-        <MyPosts />
+        <MyPosts posts={ posts } addPost={ addPost } />
       </div>
     );
 
