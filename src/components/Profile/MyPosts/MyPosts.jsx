@@ -5,20 +5,24 @@ import Post from './Post/Post.jsx';
 
 const MyPosts = (props) => {
 
-  const { posts, addPost } = { ...props };
+  const { posts, addPost, textFieldVal, updateTextFieldVal } = { ...props };
 
   const refTextarea = React.createRef();
 
   const addPostHandler = () => {
+    addPost();
+  };
+
+  const changePostHandler = () => {
     const text = refTextarea.current.value;
-    addPost(text);
+    updateTextFieldVal(text);
   };
 
   return (
     <div>
       My posts
       <div>
-        <textarea ref={ refTextarea }></textarea>
+        <textarea onChange={ changePostHandler } ref={ refTextarea } value={ textFieldVal } />
         <button onClick={ addPostHandler }>Add post</button>
       </div>
         <div>

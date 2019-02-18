@@ -5,7 +5,7 @@ import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
-const { posts, addPost } = { ...props };
+const { posts, addPost, textFieldVal, updateTextFieldVal } = { ...props };
     return (
       <div>
         <figure className={classes['main-img']}>
@@ -14,7 +14,7 @@ const { posts, addPost } = { ...props };
 
         <ProfileInfo />
 
-        <MyPosts posts={ posts } addPost={ addPost } />
+        <MyPosts posts={ posts } updateTextFieldVal={ updateTextFieldVal } textFieldVal={ textFieldVal } addPost={ addPost } />
       </div>
     );
 

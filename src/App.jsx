@@ -12,7 +12,7 @@ import Settings from './components/Settings/Settings';
 
 const App  = (props) => {
 
-    const { dialogs, messages, posts, addPost } = { ...props };
+    const { dialogs, messages, posts, addPost, textFieldVal, updateTextFieldVal } = { ...props };
 
     return (
 	  <BrowserRouter>
@@ -20,7 +20,12 @@ const App  = (props) => {
         <Header />
         <Navbar />
         <main role="main" className="content">
-        	<Route path="/profile" render={ () => <Profile posts={ posts } addPost={ addPost } /> }/>
+        	<Route path="/profile" render={ () => <Profile 
+                posts={ posts } 
+                textFieldVal={ textFieldVal } 
+                addPost={ addPost } 
+                updateTextFieldVal={ updateTextFieldVal }
+                /> }/>
         	<Route path="/dialogs" render={ () => <Dialogs dialogs={ dialogs } messages={ messages } /> }/>
         	<Route path="/news" render={ () => <News /> }/>
         	<Route path="/music" render={ () => <Music /> }/>

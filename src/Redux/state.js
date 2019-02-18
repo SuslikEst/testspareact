@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from '../render';
+
 const state = {
 	profile: {
 		dialogs: [
@@ -43,7 +45,8 @@ const state = {
 			      msg: "Пост 4",
 			      likesCount: 3,
 			    }
-			]
+			],
+			textFieldVal: "Введите текст..."
 		
 	},
 	dialogs: {
@@ -73,13 +76,20 @@ const state = {
 	
 };
 
-export const addPost = (text) => {
+export const addPost = () => {
 	const newPost = {
 		id: 5,
-		msg: text,
+		msg: state.profile.textFieldVal,
 		likesCount: 1,
 	}
 	state.profile.posts.push(newPost);
+	state.profile.textFieldVal = '';
+	rerenderEntireTree(state);
+};
+
+export const updateTextFieldVal = (text) => {
+	state.profile.textFieldVal = text;
+	rerenderEntireTree(state);
 };
 
 export default state;
