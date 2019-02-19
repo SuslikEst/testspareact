@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from '../render';
+let rerenderEntireTree = () => {
+	console.log('rerenderEntireTree');
+};
 
 const state = {
 	profile: {
@@ -84,12 +86,16 @@ export const addPost = () => {
 	}
 	state.profile.posts.push(newPost);
 	state.profile.textFieldVal = '';
-	rerenderEntireTree(state);
+	rerenderEntireTree();
 };
 
 export const updateTextFieldVal = (text) => {
 	state.profile.textFieldVal = text;
-	rerenderEntireTree(state);
+	rerenderEntireTree();
+};
+
+export const subscribe = (observer) => {
+	rerenderEntireTree = observer;
 };
 
 export default state;
